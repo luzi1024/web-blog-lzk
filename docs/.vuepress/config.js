@@ -24,7 +24,17 @@ module.exports = {
 		{ text: 'GitHub', link: 'https://github.com/luzi1024' },
     ],
 	sidebar: {
-		'/home/': genSidebarConfig('学习笔记')
+		'/home/': [
+		{
+			title: '学习笔记',
+			collapsable: false,
+			children: [
+				'',
+				'page-a',
+				'vuepress'
+			]
+		}
+		]
     }
   },
 }
