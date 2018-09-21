@@ -6,4 +6,4 @@ actionLink: /home/
 footer: MIT Licensed | Copyright © 2018-present Evan You
 ---
 # Hello VuePress!
-## 学习之旅
+## 学习之旅<(￣︶￣)↗
