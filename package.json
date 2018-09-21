@@ -9,6 +9,6 @@
 	"docs:build": "vuepress build docs"
   },
   "keywords": [],
-  "author": "",
+  "author": "lzk1024",
   "license": "ISC"
 }
