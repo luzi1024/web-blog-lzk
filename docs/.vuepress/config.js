@@ -12,13 +12,13 @@ module.exports = {
 		{ text: '简介', link: '/about/' },
 		{ text: '项目', 
 			items:[
-				{ text: 'Web-Server', link: '/Prj_web_server/' },
-				{ text: 'Web-Scan', link: '/Prj_web_scan/' },
+				{ text: 'Web-Server', link: '/project/web-server-lzk/' },
+				{ text: 'Web-Scan', link: '/project/web-scan-lzk/' },
 			]
 		},
 		{ text: '文档', 
 			items:[
-				{ text: 'Swift', link: '/GBook_Swift/' }
+				{ text: 'Swift', link: '/books/swift/' }
 			]
 		},
 		{ text: 'GitHub', link: 'https://github.com/luzi1024' },
