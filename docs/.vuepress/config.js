@@ -1,5 +1,5 @@
 module.exports = {
-	title: 'LUZI的个人笔记',
+	title: 'Luzi2048',
 	description: 'Just so so~',
 	head: [
 		['link', { rel: 'icon', href: `logo.png` }],
