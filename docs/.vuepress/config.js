@@ -18,7 +18,8 @@ module.exports = {
 		},
 		{ text: '文档', 
 			items:[
-				{ text: 'Swift', link: '/books/swift/' }
+				{ text: 'Swift', link: '/books/swift/' },
+				{ text: 'C#', link: '/books/cshape/' }
 			]
 		},
 		{ text: 'GitHub', link: 'https://github.com/luzi1024' },
