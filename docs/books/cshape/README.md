@@ -1,5 +1,6 @@
 ---
 sidebar: auto
+sidebarDepth: 0
 ---
 
 ## C# 教程
@@ -391,6 +392,508 @@ int* iptr;
 ``` csharp
 namespace TypeConversionApplication
 {
-    
+    class ExplicitConversion
+    {
+        static void Main(string[] args)
+        {
+            double d = 123.33;
+            int i;
+            
+            // 强制转换 double 为 int
+            i = (int)d;
+            Console.WriteLine(i);
+            Console.ReadKey();
+        }
+    }
 }
 ```
+
+当上面的代码被编译和执行时，它会产生如下结果
+```
+123
+```
+
+### C# 类型转换方法
+C#提供了下列内置的类型转换方法: 
+
+| 序号 | 方法 | 描述 |
+| :- | :-------- | ---- |
+| 1     | **ToBoolean**      | 如果可能的话，把类型转换为布尔型。 |
+| 2     | **ToByte** | 把类型转换为字节类型。 |
+| 3     | **ToChar** | 如果可能的话，把类型转换为单个 Unicode 字符类型。 |
+| 4     | **ToDateTime** | 把类型（整数或字符串类型）转换为 日期-时间 结构。 |
+| 5     | **ToDecimal** | 把浮点型或整数类型转换为十进制类型。 |
+| 6     | **ToDouble** | 把类型转换为双精度浮点型。 |
+| 7     | **ToInt16** | 把类型转换为 16 位整数类型。 |
+| 8     | **ToInt32** | 把类型转换为 32 位整数类型。 |
+|9     | **ToInt64** | 把类型转换为 64 位整数类型。 |
+| 10     | **ToSbyte** | 把类型转换为有符号字节类型。 |
+| 11     | **ToSingle** | 把类型转换为小浮点数类型。 |
+| 12     | **ToString** | 把类型转换为字符串类型。 |
+| 13     | **ToType** | 把类型转换为指定类型。 |
+| 14     | **ToUInt16** | 把类型转换为 16 位无符号整数类型。 |
+| 15     | **ToUInt32** | 把类型转换为 32 位无符号整数类型。 |
+| 16     | **ToUInt64** | 把类型转换为 64 位无符号整数类型。 |
+
+下面的实例把不同值的类型转换为字符串类型：
+
+``` csharp
+namespace TypeConversionApplication
+{
+    class StringConversion
+    {
+        static void Main(string[] args)
+        {
+            int i = 75;
+            float f = 53.005f;
+            double d = 2345.7652;
+            bool b = true;
+
+            Console.WriteLine(i.ToString());
+            Console.WriteLine(f.ToString());
+            Console.WriteLine(d.ToString());
+            Console.WriteLine(b.ToString());
+            Console.ReadKey();
+            
+        }
+    }
+}
+```
+当上面的代码被编译和执行时，它会产生下列结果：
+```
+75
+53.005
+2345.7652
+True
+```
+
+## C# 变量
+一个变量只不过是一个供程序操作的存储区的名字。在C#中，每个变量都有一个特定的类型，类型决定了变量的内存大小和布局。范围内的值可以存储在内存中，可以对变量进行一系列操作。
+我们已经讨论过了各种数据类型。C#中提供的基本的值类型大致可以分为以下几类：
+
+| 类型       | 举例                                                     |
+| ---------- | -------------------------------------------------------- |
+| 整数类型   | sbyte、byte、short、ushort、int、uint、long、ulong和char |
+| 浮点类型   | float 和 double                                          |
+| 十进制类型 | decimal                                                  |
+| 布尔类型   | ture或false值，指定的值                                  |
+| 空类型     | 可以为空值的数据类型                                     |
+
+C# 允许定义其他值类型的变量，比如**enum**，与允许定义引用类型变量，比如**class**。这些我们将在以后的文章中进行讨论。在本章节中，我们只研究基本变量类型。
+
+### C#中的变量定义
+C#中变量定义的语法:
+``` csharp
+<data_type> <variable_list>
+```
+
+在这里，data_type必须是一个有效的C#类型，可以是char、int、float、double。variable_list  可以由一个或多个用逗号分隔的标识符名称组成。
+一些有效的变量定义如下所示：
+``` csharp
+int i,j,k;
+char c,ch;
+float f,s;
+double d;
+```
+您可以在变量定义时进行初始化：
+``` csharp
+int i = 100;
+```
+
+### C# 中的变量初始化
+变量通过在等号后跟一个常量表达式进行初始化(赋值)。初始化的一般形式为：
+``` csharp
+variable_name = value;
+```
+变量可以在声明时被初始化（指定一个初始值）。初始化由一个等号后跟一个常量表达式组成，如下所示：
+``` csharp
+<data_type> <variable_name> = value;
+```
+一些实例：
+``` csharp
+int d = 3, f = 5; // 初始化 d 和 f
+byte z = 22; 
+char x = 'x';
+```
+
+正确地初始化变量是一个良好的编程习惯，否则有时程序会产生意想不到的结果。
+请看下面的实例，使用了各种类型的变量：
+``` csharp
+namespace VariableDefinition
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            short a;
+            int b;
+            double c；
+            
+            /* 实际初始化 */
+            a = 10;
+            b = 20;
+            c = a+b;
+            Console.WriteLine("a = {0},b = {1},c = {2}",a,b,c);
+            Console.ReadLine();
+        }
+    }
+}
+```
+当上面的代码被编译和执行时，它会产生下列结果：
+```
+a = 10,b = 20,c = 30
+```
+### 接受来自用户的值
+**System**命名空间中的**Console**类提供了一个函数**ReadLine()**,用于接收来自用户的输入，并把它存储到一个变量中。
+例如：
+``` csharp
+int num;
+num Convert.ToInt32(Conmsole.ReadLine());
+```
+函数`Convert.ToInt32()`把用户输入的数据转换为int类型数据，因为Console.ReadLine()只接受字符串格式的数据。
+
+---
+### C#中的Lvalues 和 Rvalues
+C#中的两种表达式:
+1. **lvalue**  : lvalue表达式可以出现在赋值语句的左边或右边。
+2. **rvalue** : rvalue表达式可以出现在赋值语句的右边，不能出现在复制语句的左边。
+变量是lvalue的，所以可以出现在赋值语句的左边，数值是rvalue的，因此不能被赋值，不能出现在赋值语句的左边。下面是一个有效的语句:
+``` csharp
+int g = 20;
+```
+下面是一个无效的语句，会产生编译时错误:
+``` csharp
+10 = 20;
+```
+
+## C#常量
+常量是固定值，程序执行期间不会改变，常量可以是任何基本数据类型，比如整数常量、浮点常量、字符常量或者字符串常量，还有枚举产量。
+常量可以被当作常规的变量，只是它们的值在定义后不能被修改。
+
+---
+### 整数常量
+整数常量可以是十进制、八进制或者十六进制的常量。前缀指定基数：0x 或 0X 表示十六进制，0 表示八进制，没有前缀则表示十进制。
+整数常量也可以有后缀，可以是 U 和 L 的组合，其中， U 和 L 分别表示 unsigned 和 long。后缀可以是大写或者小写，多个后缀以任意顺序进行组合。
+这里有一些整数常量的实例：
+``` csharp
+123		/* 合法 */
+123u	/* 合法 */
+0xFeeL	/* 合法 */
+054		/* 非法：8 不是一个八进制数字 */
+043UU	/* 非法：不能重复后缀 */
+```
+一下是各种类型的整数常量实例
+``` csharp
+85         /* 十进制 */
+0213       /* 八进制 */
+0x4b       /* 十六进制 */
+30         /* int */
+30u        /* 无符号 int */
+30l        /* long */
+30ul       /* 无符号 long */
+```
+### 浮点常量
+一个浮点常量是由整数部分、小数点、小数部分和指数部分组成。您可以使用小数形式或者指数形式来表示浮点常量。
+这里有一些浮点常量实例：
+``` csharp
+3.14159       /* 合法 */
+314159E-5L    /* 合法 */
+510E          /* 非法：不完全指数 */
+210f          /* 非法：没有小数或指数 */
+.e55          /* 非法：缺少整数或小数 */
+```
+使用小数形式表示时，必须包含小数点，指数或同时包含两者，使用指数形式表示时，必须包含整数部分、小数部分或同时包含两者。有符号的指数是用 e 或 E 表示的。
+
+### 字符常量
+字符常量是括在单括号里，例如，'X' ，且可以存储在一个简单的字符类型变量中，一个字符常量可以是一个普通字符(例如 'X' )、一个转义序列(例如'\t') 或者一个通用字符 (例如 '\u02C0 ' )。
+在C#中有一些特定的字符。当它们的前面带有反斜杠时有特殊意义，可用于表示换行符(\n) 或制表符 tab (\t) 。在这里列出一些转义序列码：
+
+| 转义序列 | 含义   |
+| -------- | ------ |
+| \\       | \ 字符 |
+| \'       | ' 字符 |
+| \"       | " 字符 |
+| \?       | ? 字符 |
+
+以下是一些转义序列字符的实例：
+``` csharp
+namespace EscapeChar
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello\tWorld\n\n");
+            Console.ReadLine();
+        }
+    }
+}
+```
+当上面的代码被编译和执行时，它会产生下列结果：
+```
+Hello World
+```
+### 字符串常量
+字符串常量是括在双括号`""`里，或者是括在`@""`里。字符串常量包含的字符与字符常量相似，可以是：普通字符、转义序列和通用字符
+使用字符串常量时，可以把一个很长的行拆成多个行，可以使用空格分隔各个部分。
+这里是一些字符串常量的实例。下面所列的各种形式表示相同的字符串。
+``` csharp
+string a = "hello, world";                  // hello, world
+string b = @"hello, world";               // hello, world
+string c = "hello \t world";               // hello     world
+string d = @"hello \t world";               // hello \t world
+string e = "Joe said \"Hello\" to me";      // Joe said "Hello" to me
+string f = @"Joe said ""Hello"" to me";   // Joe said "Hello" to me
+string g = "\\\\server\\share\\file.txt";   // \\server\share\file.txt
+string h = @"\\server\share\file.txt";      // \\server\share\file.txt
+string i = "one\r\ntwo\r\nthree";
+string j = @"one
+two
+three";
+```
+### 定义常量
+常量是使用 `const` 关键字来定义的。定义一个常量的语法如下：
+``` csharp
+const <data_type> <constant_name> = value;
+```
+下面的代码演示了如何在程序中定义和使用常量：
+``` csharp
+using System;
+public class ConstTest
+{
+    class SampleClass
+    {
+    	public int x;
+        public int y;
+        public const int c1 = 5;
+        public const int c2 = c1 + 5;
+
+        public SampleClass(int p1, int p2) 
+        {
+            x = p1; 
+            y = p2;
+        }    
+    }
+    
+    static void Main()
+    {
+        SampleClass mC = new SampleClass(11, 22);
+        Console.WriteLine("x = {0}, y = {1}", mC.x, mC.y);
+        Console.WriteLine("c1 = {0}, c2 = {1}", 
+                          SampleClass.c1, SampleClass.c2);
+    }
+}
+
+```
+当上面的代码被编译和执行时，它会产生下列结果：
+```
+x = 11,y = 22
+c1 = 5,c2 = 10
+```
+
+## C#运算符
+运算符是一种告诉编译器执行特定的数学或逻辑操作的符号。C# 有丰富的内置运算符，分类如下：
+- 算术运算符
+- 关系运算符
+- 逻辑运算符
+- 位运算符
+- 赋值运算符
+- 其他运算符
+
+## C#封装
+**封装** 被定义为"把一个或多个项目封闭在一个物理的或者逻辑的包中"。在面向对象的设计方法中，封装是为了防止对实现细节的访问。
+抽象和封装是面向对象程序设计的相关特性。抽象允许相关信息可视化，封装则使开发者*实现所需级别的抽象*。
+C#封装根据具体的需求，设置使用者的访问权限，并通过 **访问修饰符** 来实现。
+一个 **访问修饰符** 定义了一个类成员的范围可见性。C#支持的访问修饰符如下所示：
+- public：所有对象都可以访问
+- private：对象本身在对象内部可以访问
+- protected：只有该类对象及其子类对象可以访问
+- internal：同一个程序集的对象可以访问；
+- protected internal：访问限于当前程序集或派生自包含类的类型。
+
+---
+### Public 访问修饰符
+Public 访问修饰符允许一个类将其成员变量和成员函数暴漏给其他的函数和对象。任何公有成员可以被外部的类访问。下面的实例说明了这点：
+``` csharp
+using System;
+namespace RectangleApplication
+{
+    class Rectangle
+    {
+        // 成员变量
+        public double length;
+        public double width;
+        public double GetArea()
+        {
+            return length * width;
+        }
+        public void Display()
+        {
+        	Console.WriteLine("长度： {0}", length);
+            Console.WriteLine("宽度： {0}", width);
+            Console.WriteLine("面积： {0}", GetArea());
+        }
+    }// Rectangle 结束
+    
+    class ExecuteRectangle
+    {
+        static void Main(string[] args)
+        {
+            Rectangle r = new Rectangle();
+            r.length = 4.5;
+            r.width = 3.5;
+            r.Display();
+            Console.ReadLine();
+        }
+    }
+}
+```
+当上面的代码被编译和执行时，它会产生下列结果：
+```
+长度： 4.5
+宽度： 3.5
+面积： 15.75
+```
+在上面的实例中，成员变量 length 和 width 被声明为 **public**，所以它们可以被函数Main() 使用 Rectangle 类的实例 r 访问。
+成员函数 *Display()* 和 *GetArea()* 可以直接访问这些变量。
+成员函数 *Display()* 也被声明为 **public**，所以它也能被 *Main()* 使用 Rectangle 类的实例 r 访问。
+
+---
+### Private 访问修饰符
+Private 访问修饰符允许一个类将其成员变量和成员函数对其他的函数和对象进行隐藏。只有同一个类中的函数可以访问它的私有成员，即使是**类的实例**也不能访问它的私有成员。
+下面的实例说明了这点：
+``` csharp
+using System;
+namespace RectangleApplication
+{
+    class Rectangle
+    {
+        //成员变量
+        private double length;
+        private double width;
+        public void Acceptdetails()
+        {
+            Console.WriteLine("请输入长度：");
+            length = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("请输入宽度：");
+            width = Convert.ToDouble(Console.ReadLine());
+        }
+        
+        public double GetArea()
+        {
+            return length * width;
+        }
+        
+        public void Display()
+        {
+            Console.WriteLine("长度： {0}", length);
+            Console.WriteLine("宽度： {0}", width);
+            Console.WriteLine("面积： {0}", GetArea());
+        }   
+    }
+    
+    class ExecuteRectangle
+    {
+        static void Main(string[] args)
+        {
+            Rectangle r = new Rectangle();
+            r.Acceptdetails();
+            r.Display();
+            Console.ReadLine();
+        }
+    }
+}
+```
+当上面的代码被编译和执行时，它会产生下列结果：
+```
+请输入长度：
+4.4
+请输入宽度：
+3.3
+长度： 4.4
+宽度： 3.3
+面积： 14.52
+```
+在上面的实例中，成员变量 length 和 width 被声明为 private，所以它们不能被函数 Main() 访问。
+成员函数 AcceptDetails() 和 Display() 可以访问这些变量。
+由于成员函数 AcceptDetails() 和 Display() 被声明为 public，所以它们可以被 Main() 使用 Rectangle 类的实例 r 访问。
+
+---
+### Protected 访问修饰符
+Protected 访问修饰符允许子类访问它的基类的成员变量和成员函数。这样有助于实现继承。我们将在继承的章节详细讨论这个。更详细地讨论这个。
+
+---
+### Internal 访问修饰符
+Internal 访问修饰符允许一个类将其成员变量和成员函数暴露给**当前程序中的其他函数和对象**。换句话说，带有 internal 访问修饰符的任何成员可以被定义在该成员所定义的**应用程序内**的任何类或方法访问。
+下面的实例说明了这点：
+``` csharp
+using System;
+namespace RectangleApplication
+{
+    class Rectangle
+    {
+        //成员变量
+        internal double length;
+        internal double width;
+        
+        double GetArea()
+        {
+            return length * width;
+        }
+        public void Display()
+        {
+            Console.WriteLine("长度： {0}", length);
+            Console.WriteLine("宽度： {0}", width);
+            Console.WriteLine("面积： {0}", GetArea());
+        }
+    }
+    class ExecuteRectangle
+    {
+        static void Main(string[] args)
+        {
+            Rectangle r = new Rectangle();
+            r.length = 4.5;
+            r.width = 3.5;
+            r.Display();
+            Console.ReadLine();
+        }
+    }
+}
+```
+当上面的代码被编译和执行时，它会产生下列结果：
+```
+长度： 4.5
+宽度： 3.5
+面积： 15.75
+```
+在上面的实例中，请注意成员函数 *GetArea()* 声明的时候不带有任何访问修饰符。如果没有指定访问修饰符，则使用类成员的默认访问修饰符，即为 **private**。
+
+---
+### Protected Internal 访问修饰符
+Protected Internal 访问修饰符允许在本类,派生类或者包含该类的程序集中访问。这也被用于实现继承。
+
+## C# 方法✨
+一个方法是把一些相关的语句组织在一起，用来执行一个任务的语句块，每一个C#程序至少有一个带有 Main 方法的类。
+要使用一个方法，您需要：
+- 定义方法
+- 调用方法
+
+---
+### C# 中定义方法
+当定义一个方法时，从根本上说是在声明它的结构的元素。在 C# 中，定义方法的语句如下：
+``` csharp
+<Access Specifier> <Return Type> <Method Name>(Parameter List)
+{
+   Method Body
+}
+```
+下面是方法的各个元素：
+- **Access Specifier**：访问修饰符，这个决定了变量或方法对于另一个类的可见性。
+- **Return type**：返回类型，一个方法可以**返回一个值**。返回类型是方法返回的值的数据类型。如果方法不返回任何值，则返回类型为void。
+- **Merhod name**：方法名称，是一个唯一的标识符，且是大小写敏感的。它不能与类中声明的其他标识符相同。
+- **Parameter list**：参数列表，使用圆括号括起来，该参数是用来传递和接受方法的数据。参数列表是指方法的参数类型、顺序和数量。参数是可选的，也就是说，一个方法可能不包含参数。
+- **Method body**：方法主题，包含了完成任务所需的指令集。
+
+---
+
+是的❤😍😊✔😜✨
